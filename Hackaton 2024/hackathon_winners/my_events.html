@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootswatch theme CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+
+        .accordion-item.going .accordion-button {
+            background-color: #28a745; /* Green */
+        }
+
+        .accordion-item.not-going .accordion-button {
+            background-color: #dc3545; /* Red */
+        }
+
+        .accordion-item.maybe .accordion-button {
+            background-color: #ffc107; /* Yellow */
+        }
+
+        .going-count-tooltip:hover + .tooltip > .tooltip-inner {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .going-count-tooltip:hover + .tooltip > .tooltip-arrow {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <!-- Add your image here -->
+        <img src="assets/saskpolybanner.png" alt="Navbar Image" class="img-fluid" style="width: 10%">
+
+        <div class="navbar-brand mx-4">
+            <!-- Menu icon (you can replace it with an actual icon) -->
+            <span class="menu-icon">&#9776;</span>
+            <!-- Text beside the menu icon -->
+            MySaskpolytech
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="calendar.html">Calendar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">MyFinances</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Brightspace</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Email</a>
+                </li>
+            </ul>
+
+            <div class="me-3 text-decoration-none float-right">
+                <a href="my_profile.html" class="d-flex align-items-center">
+                    <div>
+                        <img src="assets/jett-profile-pic.jpg" alt="Profile Picture" class="mx-4 border rounded-circle" style="width: 40px;">
+                    </div>
+                    <div>
+                        <p class="me-2 text-light mb-0">Jett Boolean</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<!-- Main RSVP Content -->
+<div class="container row">
+    <div class="col-md-2 border">
+        <!-- Buttons linking to different pages -->
+        <div class="vertical-nav">
+            <a href="my_profile.html" class="btn btn-light my-4 d-block">My Profile</a>
+            <a href="my_friends.html" class="btn btn-light my-4 d-block">My Friends</a>
+            <a href="my_events.html" class="btn btn-primary my-4 d-block">My Events</a>
+        </div>
+    </div>
+    <div class="col-md-10 p-4 mt-4">
+        <h1 class="text-center">My Events</h1>
+        <hr>
+        <h3>Today, March 16th</h3>
+
+        <div class="accordion" id="eventsAccordion">
+            <!-- Day 1 -->
+            <div class="accordion-item going">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Meeting with Advisors - 9:00 AM to 10:30 AM - Student Services Building
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                     data-bs-parent="#eventsAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h3>Meeting with Advisors</h3>
+                                <hr>
+                                <p><strong>Date:</strong> 2024-03-16</p>
+                                <p><strong>Title:</strong> Meeting with Advisors</p>
+                                <p><strong>Location:</strong> Student Services Building</p>
+                                <p><strong>Start Time:</strong> 9:00 AM</p>
+                                <p><strong>End Time:</strong> 10:30 AM</p>
+
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <p>Description: Discuss academic progress</p>
+                                <hr>
+                                <p><i class="fas fa-check"></i> Going: <span
+                                        class="going-count-tooltip going-count">31</span></p>
+                                <p><i class="fas fa-question"></i> Maybe: 5</p>
+                                <!-- RSVP Buttons (Not Functional) -->
+                                <div class="btn-group" role="group" aria-label="RSVP Buttons">
+                                    <button type="button" class="btn btn-success going" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Hover for friends going"><i
+                                            class="fas fa-check"></i> Going
+                                    </button>
+                                    <button type="button" class="btn btn-warning maybe"><i class="fas fa-question"></i>
+                                        Maybe
+                                    </button>
+                                    <button type="button" class="btn btn-danger not-going"><i class="fas fa-times"></i>
+                                        Not Going
+                                    </button>
+                                    <button type="button" class="btn btn-info"><i class="fas fa-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="accordion-item going">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Networking Workshop - 11:00 AM to 2:30 PM - Career Center
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     data-bs-parent="#eventsAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h3>Networking Workshop</h3>
+                                <hr>
+                                <p><strong>Date:</strong> 2024-03-17</p>
+                                <p><strong>Location:</strong> Career Center</p>
+                                <p><strong>Start Time:</strong> 11:00 AM</p>
+                                <p><strong>End Time:</strong> 2:30 PM</p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <p>Description: Learn networking skills</p>
+                                <hr>
+                                <p><i class="fas fa-check"></i> Going: <span
+                                        class="going-count-tooltip going-count">22</span></p>
+                                <p><i class="fas fa-question"></i> Maybe: 9</p>
+                                <!-- RSVP Buttons (Not Functional) -->
+                                <div class="btn-group" role="group" aria-label="RSVP Buttons">
+                                    <button type="button" class="btn btn-success going" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Hover for friends going"><i
+                                            class="fas fa-check"></i> Going
+                                    </button>
+                                    <button type="button" class="btn btn-warning maybe"><i class="fas fa-question"></i>
+                                        Maybe
+                                    </button>
+                                    <button type="button" class="btn btn-danger not-going"><i class="fas fa-times"></i>
+                                        Not Going
+                                    </button>
+                                    <button type="button" class="btn btn-info"><i class="fas fa-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h3>Tomorrow, March 17th</h3>
+
+
+            <!-- Day 3 -->
+            <div class="accordion-item going">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Student Council Meeting - 1:00 PM to 2:00 PM - Student Union
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                     data-bs-parent="#eventsAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h3>Student Council Meeting</h3>
+                                <hr>
+                                <p><strong>Date:</strong> 2024-03-18</p>
+                                <p><strong>Location:</strong> Student Union</p>
+                                <p><strong>Start Time:</strong> 1:00 PM</p>
+                                <p><strong>End Time:</strong> 2:00 PM</p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <p>Description: Discuss upcoming events</p>
+                                <hr>
+                                <p><i class="fas fa-check"></i> Going: <span
+                                        class="going-count-tooltip going-count">13</span></p>
+                                <p><i class="fas fa-question"></i> Maybe: 18</p>
+                                <!-- RSVP Buttons (Not Functional) -->
+                                <div class="btn-group" role="group" aria-label="RSVP Buttons">
+                                    <button type="button" class="btn btn-success going" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Hover for friends going"><i
+                                            class="fas fa-check"></i> Going
+                                    </button>
+                                    <button type="button" class="btn btn-warning maybe"><i class="fas fa-question"></i>
+                                        Maybe
+                                    </button>
+                                    <button type="button" class="btn btn-danger not-going"><i class="fas fa-times"></i>
+                                        Not Going
+                                    </button>
+                                    <button type="button" class="btn btn-info"><i class="fas fa-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h3>Monday, March 17th</h3>
+
+            <div class="accordion-item going">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Networking Event - 2:00 PM to 4:00 PM - Business Center
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#eventsAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h3>Networking Event</h3>
+                                <hr>
+                                <p><strong>Date:</strong> 2024-03-19</p>
+                                <p><strong>Location:</strong> Business Center</p>
+                                <p><strong>Start Time:</strong> 2:00 PM</p>
+                                <p><strong>End Time:</strong> 4:00 PM</p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <p>Description: Connect with professionals</p>
+                                <hr>
+                                <p><i class="fas fa-check"></i> Going: <span
+                                        class="going-count-tooltip going-count">45</span></p>
+                                <p><i class="fas fa-question"></i> Maybe: 10</p>
+                                <!-- RSVP Buttons (Not Functional) -->
+                                <div class="btn-group" role="group" aria-label="RSVP Buttons">
+                                    <button type="button" class="btn btn-success going" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Hover for friends going"><i
+                                            class="fas fa-check"></i> Going
+                                    </button>
+                                    <button type="button" class="btn btn-warning maybe"><i class="fas fa-question"></i>
+                                        Maybe
+                                    </button>
+                                    <button type="button" class="btn btn-danger not-going"><i class="fas fa-times"></i>
+                                        Not Going
+                                    </button>
+                                    <button type="button" class="btn btn-info"><i class="fas fa-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="accordion-item going">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Seminar on Leadership - 10:00 AM to 12:00 PM - Conference Hall
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                     data-bs-parent="#eventsAccordion">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                <h3>Seminar on Leadership</h3>
+                                <hr>
+                                <p><strong>Date:</strong> 2024-03-20</p>
+                                <p><strong>Location:</strong> Conference Hall</p>
+                                <p><strong>Start Time:</strong> 10:00 AM</p>
+                                <p><strong>End Time:</strong> 12:00 PM</p>
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <p>Description: Learn effective leadership strategies</p>
+                                <hr>
+                                <p><i class="fas fa-check"></i> Going: <span
+                                        class="going-count-tooltip going-count">60</span></p>
+                                <p><i class="fas fa-question"></i> Maybe: 8</p>
+                                <!-- RSVP Buttons (Not Functional) -->
+                                <div class="btn-group" role="group" aria-label="RSVP Buttons">
+                                    <button type="button" class="btn btn-success going" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Hover for friends going"><i
+                                            class="fas fa-check"></i> Going
+                                    </button>
+                                    <button type="button" class="btn btn-warning maybe"><i class="fas fa-question"></i>
+                                        Maybe
+                                    </button>
+                                    <button type="button" class="btn btn-danger not-going"><i class="fas fa-times"></i>
+                                        Not Going
+                                    </button>
+                                    <button type="button" class="btn btn-info"><i class="fas fa-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-Z5lR5z3KxdAXuelKfFEzswGmWtY6w/HAib5T+8vyeTkRW4kcvLy3+hKbZl5+V0Nv"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+            const buttons = item.querySelectorAll('.btn');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const clickedButton = button.classList;
+                    const statusClasses = ['going', 'maybe', 'not-going'];
+
+                    // Remove all status classes from the item
+                    statusClasses.forEach(statusClass => {
+                        item.classList.remove(statusClass);
+                    });
+
+                    // Add the corresponding status class to the item
+                    if (clickedButton.contains('btn-success')) {
+                        item.classList.add('going');
+                    } else if (clickedButton.contains('btn-warning')) {
+                        item.classList.add('maybe');
+                    } else if (clickedButton.contains('btn-danger')) {
+                        item.classList.add('not-going');
+                    }
+                });
+            });
+
+            const goingCounts = item.querySelectorAll('.going-count');
+            goingCounts.forEach(count => {
+                count.setAttribute('data-bs-toggle', 'tooltip');
+                count.setAttribute('data-bs-placement', 'top');
+                count.setAttribute('title', 'Friend 1, Friend 2, Friend 3'); // Update with actual friends' names
+                new bootstrap.Tooltip(count); // Initialize tooltip
+            });
+        });
+    });
+</script>
+</body>
+</html>

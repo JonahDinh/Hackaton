@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <!-- Bootstrap CSS with Bootswatch theme -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/pulse/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Custom CSS for Calendar */
+        .calendar {
+            width: 100%;
+            position: relative;
+        }
+
+        .calendar table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        .calendar td {
+            width: 14.28%; /* 100% divided by 7 days */
+            padding-top: 5%; /* Maintain aspect ratio for squares */
+            position: relative;
+            text-align: left;
+        }
+
+        .calendar td > div {
+            position: absolute;
+            top: 10pt;
+            left: 10pt;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .month-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* Event Preview Styles */
+        #event-preview {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 300px; /* Limit the maximum width */
+            width: 100%; /* Ensure it takes full width within the max-width */
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 1000;
+            display: none;
+        }
+
+        #event-preview h3 {
+            margin-top: 0;
+        }
+
+        #event-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #event-list li {
+            margin-bottom: 5px;
+        }
+
+        .menu-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .menu-content.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<!-- Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <!-- Add your image here -->
+        <img src="assets/saskpolybanner.png" alt="Navbar Image" class="img-fluid" style="width: 10%">
+
+        <div class="navbar-brand mx-4">
+            <!-- Menu icon (you can replace it with an actual icon) -->
+            <span class="menu-icon">&#9776;</span>
+            <!-- Text beside the menu icon -->
+            MySaskpolytech
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Calendar
+                        <span class="visually-hidden">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">MyFinances</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Brightspace</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Email</a>
+                </li>
+            </ul>
+
+            <div class="me-3 text-decoration-none float-right">
+                <a href="my_profile.html" class="d-flex align-items-center">
+                    <div>
+                        <img src="assets/jett-profile-pic.jpg" alt="Profile Picture" class="mx-4 border rounded-circle" style="width: 40px;">
+                    </div>
+                    <div>
+                        <p class="me-2 text-light mb-0">Jett Boolean</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<!-- Calendar -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-auto">
+            <div class="calendar">
+                <div class="month-header row">
+                    <div class="col offset-2 col-md-1">
+                        <button onclick="previousMonth()" class="btn btn-secondary">&lt;</button>
+                    </div>
+                    <div class="col offset-1 col-md-3">
+                        <h2 id="month-year" class="m-0"></h2></div>
+                    <div class="col">
+                        <button onclick="nextMonth()" class="btn btn-secondary">&gt;</button>
+                    </div>
+
+                    <div class="col">
+                        <div id="filtersMenu" class="menu">
+                            <div class="menu-toggle" onclick="toggleMenu()">
+                                <button class="btn btn-primary">Filters</button>
+                            </div>
+                            <div class="menu-content">
+                                <div class="list-group">
+                                    <div class="list-group-item bg-body-tertiary text-black hover">
+                                        <input class="form-check-input me-1" type="checkbox" id="itemAll">
+                                        <label class="form-check-label stretched-link" for="itemAll">All</label>
+                                    </div>
+                                    <div class="list-group-item bg-body-tertiary text-danger">
+                                        <input class="form-check-input me-1" type="checkbox" id="itemRec">
+                                        <label class="form-check-label stretched-link" for="itemRec">Meeting</label>
+                                    </div>
+                                    <div class="list-group-item bg-body-tertiary text-success">
+                                        <input class="form-check-input me-1" type="checkbox" id="itemWork">
+                                        <label class="form-check-label stretched-link" for="itemWork">Workshop</label>
+                                    </div>
+                                    <div class="list-group-item bg-body-tertiary text-info ">
+                                        <input class="form-check-input me-1" type="checkbox" id="itemMyProg">
+                                        <label class="form-check-label stretched-link" for="itemMyProg">Fair</label>
+                                    </div>
+                                    <div class="list-group-item bg-body-tertiary text-primary">
+                                        <input class="form-check-input me-1" type="checkbox" id="itemFud">
+                                        <label class="form-check-label stretched-link" for="itemFud">Exhibition</label>
+                                    </div>
+                                    <div class="list-group-item bg-body-tertiary text-warning">
+                                        <input class="form-check-input me-1" type="checkbox" id="itemSPSA">
+                                        <label class="form-check-label stretched-link"
+                                               for="itemSPSA">Presentation</label>
+                                    </div>
+                                    <div class="list-group-item bg-body-tertiary text-secondary">
+                                        <input class="form-check-input me-1" type="checkbox" id="itemFitNRec">
+                                        <label class="form-check-label stretched-link" for="itemFitNRec">Lecture</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered border-black">
+                    <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                    </thead>
+                    <tbody id="days"></tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- Event Modal -->
+        <div class="modal fade" id="rsvpModal" tabindex="-1" role="dialog" aria-labelledby="rsvpModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="rsvpModalLabel">Event RSVP</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="accordion" id="eventsAccordion">
+
+                            <!-- Add more events here -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Event preview -->
+<div class="container" id="event-preview">
+    <div class="card">
+        <div class="card-header">
+            <span id="preview-date"></span>
+        </div>
+        <div class="card-body">
+            <ul id="event-list"></ul>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="js/script.js" defer></script>
+<script>
+    // Initialize an array to keep track of applied filters
+    var appliedFilters = [];
+
+    // Function to toggle menu content visibility
+    function toggleMenu() {
+        var menuContent = document.querySelector('#filtersMenu .menu-content');
+        menuContent.classList.toggle('show');
+    }
+
+    // Function to handle checkbox clicks
+    function handleFilterCheckboxClick(checkbox) {
+        var filterText = checkbox.nextElementSibling.textContent.trim(); // Get the text associated with the clicked checkbox
+
+        if (filterText === 'All') {
+            // If "All" checkbox is clicked, select or deselect all other checkboxes accordingly
+            var allCheckboxChecked = checkbox.checked;
+            checkboxes.forEach(function (cb) {
+                cb.checked = allCheckboxChecked;
+                if (allCheckboxChecked && cb !== checkbox) {
+                    appliedFilters.push(cb.nextElementSibling.textContent.trim());
+                } else {
+                    appliedFilters = [];
+                }
+            });
+        } else {
+            // For other checkboxes
+            var index = appliedFilters.indexOf(filterText);
+            if (index === -1) {
+                // If not applied, add it to the array
+                appliedFilters.push(filterText);
+            } else {
+                // If applied, remove it from the array
+                appliedFilters.splice(index, 1);
+            }
+            // If "All" checkbox is selected, uncheck it
+            document.getElementById('itemAll').checked = false;
+        }
+
+        // Log the current array of applied filters (you can replace this with your desired logic)
+        console.log("Applied Filters:", appliedFilters);
+    }
+
+    // Add event listeners to all checkboxes
+    var checkboxes = document.querySelectorAll('.menu-content input[type="checkbox"]');
+    checkboxes.forEach(function (checkbox) {
+        // Set default state to checked for all checkboxes except "All"
+        if (checkbox.id !== 'itemAll') {
+            checkbox.checked = true;
+            appliedFilters.push(checkbox.nextElementSibling.textContent.trim());
+        }
+        checkbox.addEventListener('click', function () {
+            handleFilterCheckboxClick(checkbox);
+        });
+    });
+
+    // Log the default applied filters
+    console.log("Default Applied Filters:", appliedFilters);
+
+</script>
+</body>
+
+
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend's Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootswatch theme CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <!-- Add your image here -->
+        <img src="assets/saskpolybanner.png" alt="Navbar Image" class="img-fluid" style="width: 10%">
+
+        <div class="navbar-brand mx-4">
+            <!-- Menu icon (you can replace it with an actual icon) -->
+            <span class="menu-icon">&#9776;</span>
+            <!-- Text beside the menu icon -->
+            MySaskpolytech
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="calendar.html">Calendar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">MyFinances</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Brightspace</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Email</a>
+                </li>
+            </ul>
+
+            <div class="me-3 text-decoration-none float-right">
+                <a href="my_profile.html" class="d-flex align-items-center">
+                    <div>
+                        <img src="assets/jett-profile-pic.jpg" alt="Profile Picture" class="mx-4 border rounded-circle"
+                             style="width: 40px;">
+                    </div>
+                    <div>
+                        <p class="me-2 text-light mb-0">Jett Boolean</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<div class="container row">
+    <div class="col-md-2 border me-2">
+        <!-- Buttons linking to different pages -->
+        <div class="vertical-nav">
+            <a href="my_profile.html" class="btn btn-light my-4 d-block">My Profile</a>
+            <a href="my_friends.html" class="btn btn-primary my-4 d-block">My Friends</a>
+            <a href="my_events.html" class="btn btn-light my-4 d-block">My Events</a>
+        </div>
+    </div>
+    <div class="col-md-10 p-4 mt-4 row">
+        <div class="col-md-3">
+            <div class="row justify-content-center">
+                <!-- Add Friends Button -->
+                <button type="button" class="btn btn-primary my-2" data-toggle="modal"
+                        data-target="#addFriendsModal">
+                    Add Friends
+                </button>
+                <!-- List of Friends -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Friends</h5>
+                        <div class="list-group" id="friendsList">
+                            <!-- Friend items will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <!-- Profile -->
+            <div class="card mb-3">
+                <div class="card-body d-flex align-items-center" id="friendProfile">
+                    <img src="./assets/jonah-profile-pic.png" alt="Profile Picture"
+                         class="img-fluid rounded-circle mb-3" style="width: 20%">
+                    <div class="ms-4">
+                        <p class="card-text fs-2"><strong>Jonah Ding</strong></p>
+                        <p class="card-text fs-5"><strong>Age:</strong> 29</p>
+                        <p class="card-text fs-5"><strong>Location:</strong> Saskatoon</p>
+                        <p class="card-text fs-5"><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body" id="eventsList">
+                    <h5 class="card-title">John's Events:</h5>
+                    <!-- Event 1 -->
+                    <div class="card mb-3" style="background-color: rgba(40,167,69,0.6)">
+                        <div class="card-body row p-2">
+                            <div class="col-md-3">
+                                <h6 class="card-subtitle text-muted fs-3">Event 1</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <p><i class="bi bi-calendar me-1"></i><strong>Date:</strong> March 17, 2024</p>
+                                <p><i class="bi bi-clock me-1"></i><strong>Time:</strong> 3:00 PM</p>
+                                <p><i class="bi bi-geo-alt me-1"></i><strong>Location:</strong> Central Park, New
+                                    York
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Event 2 -->
+                    <div class="card mb-3" style="background-color: rgba(40,167,69,0.6)">
+                        <div class="card-body row p-2">
+                            <div class="col-md-3">
+                                <h6 class="card-subtitle text-muted fs-4">Event 2</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <p><i class="bi bi-calendar me-1"></i><strong>Date:</strong> April 20, 2024</p>
+                                <p><i class="bi bi-clock me-1"></i><strong>Time:</strong> 6:00 PM</p>
+                                <p><i class="bi bi-geo-alt me-1"></i><strong>Location:</strong> Times Square, New
+                                    York
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more events as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--        </div>-->
+</div>
+</div>
+
+<!-- Add Friends Modal -->
+<div class="modal fade" id="addFriendsModal" tabindex="-1" aria-labelledby="addFriendsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addFriendsModalLabel">Add Friends</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Search bar -->
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="friendSearchInput" placeholder="Search for friends...">
+                    <button class="btn btn-primary" type="button" onclick="searchFriends()">Search</button>
+                </div>
+                <!-- List of Friends -->
+                <div class="list-group" id="searchResults">
+                    <!-- Search results will be dynamically added here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Add Selected Friends</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (Optional) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Hardcoded friends data
+    const friends = [
+        {
+            name: "Friend 1",
+            image: "https://via.placeholder.com/50",
+            age: 30,
+            location: "Regina",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+            name: "Friend 2",
+            image: "https://via.placeholder.com/50",
+            age: 25,
+            location: "Saskatoon",
+            bio: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            name: "Friend 3",
+            image: "https://via.placeholder.com/50",
+            age: 28,
+            location: "Moose Jaw",
+            bio: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            name: "Friend 4",
+            image: "https://via.placeholder.com/50",
+            age: 35,
+            location: "Regina",
+            bio: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        },
+        {
+            name: "Friend 5",
+            image: "https://via.placeholder.com/50",
+            age: 27,
+            location: "Saskatoon",
+            bio: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+            name: "Friend 6",
+            image: "https://via.placeholder.com/50",
+            age: 32,
+            location: "Prince Albert",
+            bio: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+        }
+    ];
+
+
+    // Function to populate friends list
+    function populateFriendsList() {
+        const friendsListContainer = document.getElementById('friendsList');
+        friendsListContainer.innerHTML = '';
+        friends.forEach((friend, index) => {
+            const listItem = document.createElement('a');
+            listItem.href = '#';
+            listItem.className = 'list-group-item list-group-item-action bg-white text-black border rounded my-1';
+            listItem.innerHTML = `
+            <img src="${friend.image}" alt="${friend.name}" class="img-fluid rounded-circle mr-2">
+            ${friend.name}
+        `;
+
+            // Add event listener to each friend item to change background color on hover
+            listItem.addEventListener('mouseenter', () => {
+                listItem.classList.add('bg-primary-subtle');
+            });
+
+            listItem.addEventListener('mouseleave', () => {
+                listItem.classList.remove('bg-primary-subtle');
+            });
+
+            // Add event listener to each friend item
+            listItem.addEventListener('click', () => displayFriendProfile(index));
+            friendsListContainer.appendChild(listItem);
+        });
+    }
+
+
+    // Function to display friend profile
+    function displayFriendProfile(index) {
+        const friend = friends[index];
+        const friendProfile = document.getElementById('friendProfile');
+        friendProfile.innerHTML = `
+            <div class="card-body">
+                <h5 class="card-title">${friend.name}'s Profile</h5>
+                <img src="https://via.placeholder.com/150" alt="${friend.name}'s Profile Picture" class="img-fluid rounded-circle mb-3">
+                <p class="card-text"><strong>Name:</strong> ${friend.name}</p>
+                <p class="card-text"><strong>Age:</strong> ${friend.age}</p>
+                <p class="card-text"><strong>Location:</strong> ${friend.location}</p>
+                <p class="card-text"><strong>Bio:</strong> ${friend.bio}</p>
+            </div>
+        `;
+    }
+
+    // Function to simulate friend search
+    function searchFriends() {
+        const searchInput = document.getElementById('friendSearchInput').value.toLowerCase();
+        const searchResultsContainer = document.getElementById('searchResults');
+        searchResultsContainer.innerHTML = '';
+        friends.forEach((friend, index) => {
+            if (friend.name.toLowerCase().includes(searchInput)) {
+                const listItem = document.createElement('a');
+                listItem.href = '#';
+                listItem.className = 'list-group-item list-group-item-action bg-white text-black border rounded my-1';
+                listItem.innerHTML = `
+                    <img src="${friend.image}" alt="${friend.name}" class="img-fluid rounded-circle">
+                    ${friend.name}
+                `;
+                // Add event listener to each friend item to change background color on hover
+                listItem.addEventListener('mouseenter', () => {
+                    listItem.classList.add('bg-primary-subtle');
+                });
+
+                listItem.addEventListener('mouseleave', () => {
+                    listItem.classList.remove('bg-primary-subtle');
+                });
+                // Add event listener to each search result item
+                listItem.addEventListener('click', () => displayFriendProfile(index));
+                searchResultsContainer.appendChild(listItem);
+            }
+        });
+    }
+
+    // Initial population of friends list
+    populateFriendsList();
+</script>
+</body>
+</html>

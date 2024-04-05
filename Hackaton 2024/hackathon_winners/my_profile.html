@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootswatch theme CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Profile Card</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <!-- Add your image here -->
+        <img src="assets/saskpolybanner.png" alt="Navbar Image" class="img-fluid" style="width: 10%">
+
+        <div class="navbar-brand mx-4">
+            <!-- Menu icon (you can replace it with an actual icon) -->
+            <span class="menu-icon">&#9776;</span>
+            <!-- Text beside the menu icon -->
+            MySaskpolytech
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="calendar.html">Calendar
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">MyFinances</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Brightspace</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Email</a>
+                </li>
+            </ul>
+
+            <div class="me-3 text-decoration-none float-right">
+                <a href="my_profile.html" class="d-flex align-items-center">
+                    <div>
+                        <img src="assets/jett-profile-pic.jpg" alt="Profile Picture" class="mx-4 border rounded-circle" style="width: 40px;">
+                    </div>
+                    <div>
+                        <p class="me-2 text-light mb-0">Jett Boolean</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<div class="container row">
+    <div class="col-md-2 border">
+        <!-- Buttons linking to different pages -->
+        <div class="vertical-nav">
+            <a href="my_profile.html" class="btn btn-primary my-4 d-block">My Profile</a>
+            <a href="my_friends.html" class="btn btn-light my-4 d-block">My Friends</a>
+            <a href="my_events.html" class="btn btn-light my-4 d-block">My Events</a>
+        </div>
+    </div>
+
+    <div class="col-md-10 p-4 mt-4">
+        <div id="profile" class="col-md-12 row">
+            <div class="card bg-light p-4 mb-4">
+                <div class="card-body d-flex align-items-center">
+                    <!-- Profile Picture -->
+                    <img src="assets/jett-profile-pic.jpg" alt="Profile Picture" class="mx-4 border rounded-circle"
+                         style="width: 20%">
+
+                    <!-- Profile Information -->
+                    <div class="mx-4">
+                        <!-- Bold Name -->
+                        <div class="mb-2 fs-1"><strong>Jett Boolean</strong></div>
+                        <div class="mb-2 fs-5"><strong>Pronouns:</strong> he/him</div>
+                        <div class="mb-2 fs-5"><strong>Student Number:</strong> 005882300</div>
+                    </div>
+
+                    <!-- Program Information -->
+                    <div class="mx-4 text-right">
+                        <!-- Bold Program -->
+                        <div class="mb-2 fs-5"><strong>Program:</strong> Computer Science</div>
+
+                        <!-- Email -->
+                        <div class="mb-2 fs-5"><strong>Email:</strong> <a href="#">jett.boolean@example.com</a>
+                        </div>
+
+                        <!-- Bold Campus -->
+                        <div class="fs-5"><strong>Campus:</strong> Main Campus</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
+                <div id="events" class="col-md-6">
+                    <div class="bg-light p-4 mb-4" style="height: 600px; overflow-y: auto;">
+                        <div class="card-header fs-2">
+                            My Events
+                        </div>
+                        <!-- Example events -->
+                        <a href="my_events.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3" style="background-color: rgba(40,167,69,0.6)">
+                                <div class="card-body">
+                                    <h3 class="card-title">Event 1</h3>
+                                    <p class="card-text">Date: April 1, 2024</p>
+                                    <p class="card-text">Location: Venue 1</p>
+                                    <p class="card-text">Description: Lorem ipsum dolor sit amet,
+                                        consectetur adipiscing elit.</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_events.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3" style="background-color: rgba(255,193,7,0.6)">
+                                <div class="card-body">
+                                    <h3 class="card-title">Event 2</h3>
+                                    <p class="card-text">Date: April 15, 2024</p>
+                                    <p class="card-text">Location: Venue 2</p>
+                                    <p class="card-text">Description: Sed do eiusmod tempor incididunt ut
+                                        labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_events.html" class="text-decoration-none">
+                            <div class="card border-primary" style="background-color: rgba(40,167,69,0.6)">
+                                <div class="card-body">
+                                    <h3 class="card-title">Event 3</h3>
+                                    <p class="card-text">Date: May 30, 2024</p>
+                                    <p class="card-text">Location: Venue 3</p>
+                                    <p class="card-text">Description: Ut enim ad minim veniam, quis nostrud
+                                        exercitation ullamco laboris nisi ut aliquip ex ea
+                                        commodo consequat.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div id="program" class="col-md-3">
+                    <div class="bg-light p-2 mb-4" style="height: 600px; overflow-y: auto;">
+                        <div class="card-header fs-2">
+                            Program Members
+                        </div>
+                        <!-- Example program profiles -->
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="./assets/jonah-profile-pic.png" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1" style="width: 50px"> <!-- Add mr-3 for margin -->
+                                    <h5 class="card-title">Jonah Ding</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1">
+                                    <h5 class="card-title">John Simp</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1">
+                                    <h5 class="card-title">Mason Rabe</h5> <!-- Add mb-0 for margin-bottom -->
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1"> <!-- Add mr-3 for margin -->
+                                    <h5 class="card-title">Mike Will</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1"> <!-- Add mr-3 for margin -->
+                                    <h5 class="card-title">Ben Benny</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1"> <!-- Add mr-3 for margin -->
+                                    <h5 class="card-title">Ben Benny Jr.</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1"> <!-- Add mr-3 for margin -->
+                                    <h5 class="card-title">Speedy Bryce</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1"> <!-- Add mr-3 for margin -->
+                                    <h5 class="card-title">Cookie Monster</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1"> <!-- Add mr-3 for margin -->
+                                    <h5 class="card-title">Michael Michael</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div id="friends" class="col-md-3">
+                    <div class="bg-light p-2 mb-4" style="height: 600px; overflow-y: auto;">
+                        <div class="card-header fs-3">My Friends</div>
+                        <!-- Example friend profiles -->
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1"> <!-- Add mr-3 for margin -->
+                                    <h5 class="card-title">Patrick</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1"> <!-- Add mr-3 for margin -->
+                                    <h5 class="card-title">Spongebob</h5>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="my_friends.html" class="text-decoration-none">
+                            <div class="card border-primary mb-3">
+                                <div class="card-body d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/50" alt="Profile Picture"
+                                         class="img-fluid rounded-circle me-1"> <!-- Add mr-3 for margin -->
+                                    <h5 class="card-title">Squidward</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
